@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href ="{{ url_for('static', filename='css/styless.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1 class = "Title">
+            CSCB20 - Introduction to Databases and Web Applications
+        </h1>
+    </nav>
+
+    <div id="container">
+    
+        
+        <aside class="sidebar">
+
+            <div><h2>MENU</h2></div>
+
+            <div class = "dropdown">
+
+            <div><a href="{{ url_for('index') }}">home</a></div>
+            <div><a href="{{ url_for('new') }}">new news</a></div>
+            <div> <a href = "https://piazza.com/mail.utoronto.ca/winter2016/cscb20/home"> discusion board</a></div>
+            <div><a href="{{ url_for('lec') }}">lectures</a></div>
+            <div><a href="{{ url_for('labs') }}">labs</a></div>
+            <div><a href="{{ url_for('assign') }}"> assignments</a></div>
+            <div><a href="{{ url_for('tests') }}">tests</a></div>
+            <div><a href="{{ url_for('res') }}">resources</a></div>
+            <div><a href="{{ url_for('syl') }}">syllabus</a></div>
+            <div><a href = "https://markus2.utsc.utoronto.ca/">markus</a></div>
+            <div><a href="{{ url_for('calendar') }}">calendar</a></div>
+            <br>
+
+            {% block content %}
+                {% if session.type == 'Instructor' %}
+                    <div><a href = "{{ url_for('enter_grade') }}">assign marks</a></div>
+                    <div><a href = "{{ url_for('view_grades') }}">view class grades</a></div>
+                    <div><a href="{{url_for('anon_mail')}}">review feedback</a></div>
+                    <div><a href = "{{ url_for('view_anon') }}">view all feedback</a></div>
+                    <div><a href="{{ url_for('remark_req') }}">view remark requests</a></div>
+
+
+                {% else %}    
+                    <div><a href = "{{ url_for('view_grades_student') }}">view your marks</a></div>
+                    <div><a href = "{{ url_for('student_feedback') }}">provide feedback</a></div>
+                    <div><a href = "{{ url_for('remark') }}">remark request</a></div>
+                {% endif %}
+
+
+            <div><a href = "{{ url_for('logout') }}"><b>LOGOUT</b></a></div>
+            {%endblock%}
+
+
+            </div>
+
+
+
+        </aside>
+
+          
+
+        <main class="content"> 
+
+            <div class="normal-setup">
+                <h1>Midterm</h1>
+                <p>here will be one midterm. The midterm will be 75min in length. You should go to either HW215 or HW216 depending on your last name as shown here.</p>
+            </div>
+
+
+            <div> <h4>2017-1 Winter - CSCB20 - Midterm - Room Allocation</h4></div>
+
+            <div id="tests_table">
+
+                <div id="course">Course</div>
+                <div id="date">Date</div>
+                <div id="space"></div>
+                <div id="cap">Capacity</div>
+                <div id="room">Room #</div>
+                <div id="lname">Last Name</div>
+                <div id="numstu"># of Students</div>
+                <div>CSCB20</div>
+                <div>Monday 13 Febuary</div>
+                <div>1</div>
+                <div>50</div>
+                <div>HW 215</div>
+                <div>A - HE</div>
+                <div>48</div>
+                <div>A.Bretscher</div>
+                <div>@5:00 PM</div>
+                <div>2</div>
+                <div>110</div>
+                <div>HW 216</div>
+                <div>HO - Z</div>
+                <div>108</div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>160</div>
+                <div></div>
+                <div><b>TOTAL</b></div>
+                <div>156</div>
+
+         
+            </div>
+
+            <div class="normal-setup2">
+                <p>
+                    Preparing for the midterm:<br>
+                    <ul>
+                        <li>Understand all parts of A1.</li>
+                        <li>The midterm will cover everything on databases that we did from the start until part way through the week 6 lecture.</li>
+                    </ul>
+                    Once you have done some preparation, you can practice on a previous midterm: Term Test
+
+
+                </p>
+
+            </div>
+        
+        </main>
+
+        <footer class="end"><p>
+            
+            Site design by Nethanel reta<br>
+            <a href = https://web.cs.toronto.edu/ >Faculty of Computer Science at UofT</a>
+        
+        </p></footer>
+
+
+    </div>
+
+
+   
+
+
+    
+</body>
+</html>

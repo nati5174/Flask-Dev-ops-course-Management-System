@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href ="{{ url_for('static', filename='css/styless.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1 class = "Title">
+            CSCB20 - Introduction to Databases and Web Applications
+        </h1>
+    </nav>
+
+    <div id="container">
+    
+        
+        <aside class="sidebar">
+
+            <div><h2>MENU</h2></div>
+
+            <div class = "dropdown">
+
+            <div><a href="{{ url_for('index') }}">home</a></div>
+            <div><a href="{{ url_for('new') }}">new news</a></div>
+            <div> <a href = "https://piazza.com/mail.utoronto.ca/winter2016/cscb20/home"> discusion board</a></div>
+            <div><a href="{{ url_for('lec') }}">lectures</a></div>
+            <div><a href="{{ url_for('labs') }}">labs</a></div>
+            <div><a href="{{ url_for('assign') }}"> assignments</a></div>
+            <div><a href="{{ url_for('tests') }}">tests</a></div>
+            <div><a href="{{ url_for('res') }}">resources</a></div>
+            <div><a href="{{ url_for('syl') }}">syllabus</a></div>
+            <div><a href = "https://markus2.utsc.utoronto.ca/">markus</a></div>
+            <div><a href="{{ url_for('calendar') }}">calendar</a></div>
+            <br>
+
+            {% block content %}
+                {% if session.type == 'Instructor' %}
+                    <div><a href = "{{ url_for('enter_grade') }}">assign marks</a></div>
+                    <div><a href = "{{ url_for('view_grades') }}">view class grades</a></div>
+                    <div><a href="{{url_for('anon_mail')}}">review feedback</a></div>
+                    <div><a href = "{{ url_for('view_anon') }}">view all feedback</a></div>
+                    <div><a href="{{ url_for('remark_req') }}">view remark requests</a></div>
+
+
+                {% else %}    
+                    <div><a href = "{{ url_for('view_grades_student') }}">view your marks</a></div>
+                    <div><a href = "{{ url_for('student_feedback') }}">provide feedback</a></div>
+                    <div><a href = "{{ url_for('remark') }}">remark request</a></div>
+                {% endif %}
+
+
+            <div><a href = "{{ url_for('logout') }}"><b>LOGOUT</b></a></div>
+            {%endblock%}
+
+
+            </div>
+
+
+
+        </aside>
+
+
+
+        <main class="content">
+            
+           <div id# = last_flex>
+
+            <div id = "title9"><h1>Lecture Schedule</h1></div>
+
+            <div><h3> Please print and bring these notes/worksheets to class.</h5></div>
+
+
+            <div id="lec_table">
+
+                <div id="week">Week</div>
+                <div id="topic">Topic</div>
+                <div id="read">Reading</div>
+                <div id="lec">Lecture Material</div>
+                <div id="class"> In Class</div>
+                <div>1</div>
+                <div>Introduction, Databases background</div>
+                <div> </div>
+                <div>
+                    <ul>
+                        <li> <a href = download.html> Power Point</a> </li>
+                        <li> <a href = download.html> Power Point handout</a> </li>
+
+                    </ul>
+                </div>
+                <div> </div>
+                <div>2</div>
+                <div> Schema Diagrams, Relational Algebra </div>
+                <div></div>
+                <div>
+                    <ul>
+                        <li> <a href = download.html> Power Point Worksheet </a> </li>
+                        <li> <a href = download.html> Worksheet Solutions  </a> </li>
+
+                    </ul>
+                </div>
+
+
+
+                <div></div>
+                <div>3</div>
+                <div> SQL and MySQL </div>
+                <div></div>
+                <div>
+                    <ul>
+                        <li> <a href = download.html> Power Point PDF </a> </li>
+                        <li> <a href = download.html> Power Point Printable </a> </li>
+                        <li> <a href = download.html> MySQL Worksheet</a> </li>
+
+
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li> <a href = download.html download> In Class MySQL</a> </li>
+                      
+                    </ul>
+                </div>
+                <div>4</div>
+                <div>MySQL Queries, Creating and Editing Tables </div>
+                <div></div>
+
+                <div>
+                    <ul>
+                        <li> <a href = download.html> Power Point </a> </li>
+                        <li> <a href = download.html> Printable Power Point </a> </li>
+                        <li> <a href = download.html> More MySQL  Worksheet</a> </li>
+                        <li> <a href = download.html style="color:#FF0000"> Solutions </a> </li>
+
+                    </ul>
+                </div>
+
+
+
+                <div>
+                    <ul>
+                        <li> <a href = download.html download> In Class MySQL</a> </li>
+                      
+                    </ul>
+                </div>
+                <div>5 </div>
+                <div>MySQL Outer Joins, Views, NULL, string functions, HTML </div>
+                <div></div>
+               
+                <div>
+                    <ul>
+                        <li> <a href = download.html> Power Point </a> </li>
+                        <li> <a href = download.html> HTML Power Point </a> </li>
+                        <li> <a href = download.html> MySQL Views Worksheet</a> </li>
+                        <li> <a href = download.html style="color:#FF0000"> Solutions </a> </li>
+
+                    </ul>
+                </div>
+
+
+
+                <div></div>
+                <div>6</div>
+                <div>  HTML, CSS </div>
+                <div></div>
+               
+                <div>
+                    <ul>
+                        <li> <a href = download.html> CSS Power Point </a> </li>
+                     
+                    </ul>
+                </div>
+                <div></div>
+                <div>7</div>
+                <div> PHP </div>
+                <div></div>
+              
+                <div>
+                    <ul>
+                        <li> <a href = download.html> Power Point </a> </li>
+                      
+                    </ul>
+                </div>
+                <div></div>
+                <div>8</div>
+                <div> PHP and SQL </div>
+                <div></div>
+
+                <div>
+                    <ul>
+                        <li> <a href = download.html> Power Point </a> </li>
+                    
+                    </ul>
+                </div>
+                <div>
+                    <div>
+                        <ul>
+                            <li> 
+                                <p>
+                                    Empty starter file:  <a href = download.html download> query.php
+                                    </a> To look at the txt for this file, download this
+                                    <a href = download.html download>  php_query.txt
+                                    </a>
+                                </p>
+                                
+                            </li>
+                         
+                        </ul>
+                    </div>
+
+
+                </div>
+                <div>9</div>
+                <div> JavaScript and jQuery </div>
+                <div></div>
+               
+                <div>
+                    <ul>
+                        <li> <a href = download.html> jQuery Power Point </a> </li>
+                      
+                    </ul>
+                </div>
+                <div></div>
+                <div>10</div>
+                <div> jQuery, AJAX, JSON </div>
+                <div></div>
+               
+                <div>
+                    <ul>
+                        <li> <a href = download.html> Power Point </a> </li>
+                        <li> <a href = download.html> Printable Power Point </a> </li>
+                      
+                    </ul>
+                </div>
+                <div></div>
+                <div>11</div>
+                <div>Last Year's final </div>
+                <div></div>
+              
+                <div>
+                    <ul>
+                        <li> <a href = download.html> W16 Final </a> </li>
+                        <li><p>Note that some questions have code missing because portions resemble your A3 </p> </li>
+                     
+                    </ul>
+                </div>
+                <div></div>
+
+               
+
+
+
+
+
+
+            </div>
+        </div>
+        
+        </main>
+
+        <footer class="end"><p>
+            
+            Site design by Nethanel reta<br>
+            <a href = https://web.cs.toronto.edu/ >Faculty of Computer Science at UofT</a>
+        
+        </p></footer>
+
+
+    </div>
+   
+</body>
+</html>

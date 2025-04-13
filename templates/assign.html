@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href ="{{ url_for('static', filename='css/styless.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1 class = "Title">
+            CSCB20 - Introduction to Databases and Web Applications
+        </h1>
+    </nav>
+
+    <div id="container">
+    
+        
+        <aside class="sidebar">
+
+            <div><h2>MENU</h2></div>
+
+            <div class = "dropdown">
+
+            <div><a href="{{ url_for('index') }}">home</a></div>
+            <div><a href="{{ url_for('new') }}">new news</a></div>
+            <div> <a href = "https://piazza.com/mail.utoronto.ca/winter2016/cscb20/home"> discusion board</a></div>
+            <div><a href="{{ url_for('lec') }}">lectures</a></div>
+            <div><a href="{{ url_for('labs') }}">labs</a></div>
+            <div><a href="{{ url_for('assign') }}"> assignments</a></div>
+            <div><a href="{{ url_for('tests') }}">tests</a></div>
+            <div><a href="{{ url_for('res') }}">resources</a></div>
+            <div><a href="{{ url_for('syl') }}">syllabus</a></div>
+            <div><a href = "https://markus2.utsc.utoronto.ca/">markus</a></div>
+            <div><a href="{{ url_for('calendar') }}">calendar</a></div>
+            <br>
+
+            {% block content %}
+                {% if session.type == 'Instructor' %}
+                    <div><a href = "{{ url_for('enter_grade') }}">assign marks</a></div>
+                    <div><a href = "{{ url_for('view_grades') }}">view class grades</a></div>
+                    <div><a href="{{url_for('anon_mail')}}">review feedback</a></div>
+                    <div><a href = "{{ url_for('view_anon') }}">view all feedback</a></div>
+                    <div><a href="{{ url_for('remark_req') }}">view remark requests</a></div>
+
+
+                {% else %}    
+                    <div><a href = "{{ url_for('view_grades_student') }}">view your marks</a></div>
+                    <div><a href = "{{ url_for('student_feedback') }}">provide feedback</a></div>
+                    <div><a href = "{{ url_for('remark') }}">remark request</a></div>
+                {% endif %}
+
+
+            <div><a href = "{{ url_for('logout') }}"><b>LOGOUT</b></a></div>
+            {%endblock%}
+
+
+            </div>
+
+
+
+        </aside>
+
+             
+
+           
+
+        <main class="content"> 
+
+            <div class="normal-setup">
+                <h1>Assignments</h1>
+            </div>
+
+            <div class="normal-setup">
+                <h2>Overview</h2>
+                <p>Here are the assignment and exercise topics, weights, and due dates. I will be posting the exercise and assignment handouts here. All exercises and assignments will be submitted on MarkUs.</p>
+            </div>
+
+              
+
+                <table  action = "http://127.0.0.1:5000/" method="get">
+
+    
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Topic</th>
+                        <th>Weight</th>
+                        <th>Due Date</th>
+                        <th>Solutions</th>
+                    </tr>
+    
+                    <tr>
+                        <td>1. <a href="https://en.wikipedia.org/wiki/Yared">Handout</a></td>
+                        <td>Relational Algebra and MySQL</td>
+                        <td>15%</td>
+                        <td>Part 1. Wednesday Feb. 1, 11.59pm, Submit to MarkUs
+                            UPDATED Part 2 and 3. For 5% bonus Saturday Feb. 11, 11.59pm or Friday Feb. 17, 11.59 Submit to MarkUs You can download a dumpfile for IMDB_SMALL here.
+                            To use it type mysql -u utorid -p < IMDB_SMALL.sql</td>
+                        <td>Solution</td>
+                    </tr>
+                    
+                    <tr>
+
+                        <td>2. <a href="https://en.wikipedia.org/wiki/Yared">Handout</a></td>
+                        <td>HTML, CSS, PHP</td>
+                        <td>15%</td>
+                        <td>Part 1: Worth 50% Friday March. 10, 11.59pm, Submit to MarkUs
+                            Part 2: Worth 50% Friday March. 19, 11.59pm, Submit to MarkUs--></td>
+                        <td></td>
+
+                    </tr>
+                        
+
+                    <tr>
+                        <td>3. <a href="https://en.wikipedia.org/wiki/Yared">New Marking Scheme for A3
+                            Handout</a></td>
+                        <td>Web Application and Database</td>
+                        <td>15%</td>
+                        <td>Friday March 31, 11.59pm</td>
+                        <td></td>
+                    </tr>
+                        
+                
+                
+                </table>
+
+                
+
+
+               
+               
+
+            </div>
+
+            <div class="normal-setup1">
+                <h2>FAQ - Assignment 1</h2>
+                <p>
+                    Q. If the mysql portion asks for a director or actor without specifying which attributes, what should I return? <br>
+                    A. Return the first name, last name.</p>
+            </div>
+        
+        </main>
+
+        <footer class="end"><p>
+            
+            Site design by Nethanel reta<br>
+            <a href = https://web.cs.toronto.edu/ >Faculty of Computer Science at UofT</a>
+        
+        </p></footer>
+
+
+    </div>
+
+
+   
+
+
+    
+</body>
+</html>

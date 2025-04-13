@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles1.css') }}">
+</head>
+<body>
+
+
+    <nav class="navbar">
+        <h1 class = "Title">
+            CSCB20 - Introduction to Databases and Web Applications
+        </h1>
+    </nav>
+
+    <nav class="bar">
+            <button class="log"><b><a he>Login</a></b></button>
+            <span>|</span>
+            <button class="reg"><b><a class="no_link" href="{{ url_for('register') }}">Register</a></b></button>
+    </nav>
+
+
+    <main id="auth">
+
+        <h1>
+            Login
+        </h1>
+
+        <form action="http://127.0.0.1:5000/login" method="post">
+            {% block content %}
+            {%with messages = get_flashed_messages(with_categories=True)%}
+                {% if messages %}
+                    {% for categories, message in messages %}
+                        <div class="error">{{categories}} - {{message}}</div>
+                    {% endfor%}
+    
+                {%endif%}        
+            {% endwith%}
+            {% endblock %}
+
+            <br><br>
+            <input type="Username" placeholder="Username" name="username_log"> <br>
+            <br>
+            <br>
+            <input type="password" placeholder="Password" name="pswd_log"> <br>
+            <br>
+            <button class="log_reg_button" >Login</button>
+
+        </form >
+        <br>
+     
+
+        </main>
+       
+
+
+
+    
+</body>
+</html>

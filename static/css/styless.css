@@ -1,0 +1,711 @@
+body{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #003566;
+
+
+}
+
+footer{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #003566;
+    text-align: center;
+}
+
+nav {
+    background-color: #003566;
+    animation-name: b;
+    animation-duration:  4s;
+    min-width:1450px;
+    position: relative;
+    animation-direction: alternate;
+    border: white solid 10px;
+    border-radius:20px;
+    padding: 20px;
+    margin-bottom: 10px;
+    color:white;
+    text-align: center;
+    top: 0;
+    position: sticky;
+    
+}
+
+@keyframes b {
+    0% {left:850px}
+    25% {left:600px}
+    50% {left:300px}
+    75% {left:0}
+
+
+}
+
+.hand{
+    animation-name: a;
+    animation-duration:  4s;
+    animation-iteration-count:infinite;
+    display: inline-block;
+    animation-direction: alternate;
+
+}
+@keyframes a {
+    0% {transform:rotate(0.0deg)}
+    20% {transform:rotate(14.0deg)}
+    40% {transform:rotate(58.0deg)}
+    60% {transform:rotate(14.0deg)}
+    80% {transform:rotate(44.0deg)}
+    100% {transform:rotate(-8.0deg)}
+
+
+}
+
+
+
+
+
+
+
+#container{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "topbar topbar"
+    "side info"
+    "side end";
+}
+
+
+#container > .sidebar {
+    grid-area:side;
+    border: 1px 003566 solid;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+    align-items: center;
+    background-color: #003566;
+    
+}
+
+
+
+.sidebar > div{
+        width:100%;
+        text-align: center;
+        color: white;
+    
+}
+
+
+.sidebar > div > div:hover{
+    background: #01305c;
+    letter-spacing: 5px;
+    font-weight: bold;
+    
+}
+
+.sidebar > div > div> a{
+    text-decoration: none;
+    color: white;
+
+}
+
+
+
+#container > .content {
+    grid-area:info;
+    border: 5px #003566 solid;
+    border-radius:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    gap:20px;
+    
+
+}
+
+#container > .end {
+    grid-area:end;
+    padding: 1rem;
+    border: 5px #003566 solid;
+    border-radius:10px;
+    margin-top: 10px;
+
+}
+
+.first{
+    display:flex;
+    flex-direction: column;
+    align-items:start;
+    justify-content: start;
+    padding-top: 1rem;
+    gap: 20px;
+    margin-top: 20px;
+
+}
+
+.first10{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    padding-top: 1rem;
+    gap: 20px;
+    margin-top: 20px;
+    background-color: #E7E7E7;
+    padding: 10rem;
+    border: 5px #003566 solid;
+    border-radius:10px;
+    margin-bottom: 60px;
+
+}
+
+
+
+
+
+.first >  div {
+    border: 5px #003566 solid;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: start;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width:1050px;
+    color: #003566
+
+}
+
+.first > h1{
+   
+    border: 5px #003566 solid;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: start;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width:1050px;
+    color: #003566;
+   
+
+.wel{
+    animation-name:c;
+    animation-duration: 4s;
+    display: inline-block;
+}
+
+}
+
+@keyframes c {
+    0% {transform:rotate(0.0deg)}
+    20% {transform:rotate(14.0deg)}
+    40% {transform:rotate(-14.0deg)}
+    60% {transform:rotate(14.0deg)}
+    80% {transform:rotate(-14.0deg)}
+    100% {transform:rotate(0.0deg)} 
+
+    
+}
+
+#Instructor{
+    margin-bottom: 50px;
+    text-align: start;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width:1050px;
+    color: #003566
+
+}
+
+
+aside {
+    border: 1px #003566 solid;
+    border-radius: 20px;
+    margin-right: 10px;
+   
+}
+
+aside > div {
+    font-size: x-large;
+}
+
+#lec_table{
+    
+    display: grid;
+    grid-template-areas: 
+    "Week Topic Reading Lecture-Material In-Class"
+    "1 Topic1 Reading1 Material1 Class1"
+    "2 Topic2 Reading2 Material1 Class2"
+    "3 Topic3 Reading3 Material3 Class3"
+    "4 Topic4 Reading4 Material4 Class4"
+    "5 Topic5 Reading5 Material5 Class5";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+
+    text-align: center;
+    border: 5px #003566 solid;
+    border-radius: 20px;
+    padding: 1rem;
+    min-width:1050px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+
+
+}
+
+.content{
+    border: 100px #003566 solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+#lec_table > div {
+    padding: 1rem;
+    border: 1px #003566 solid;
+
+}
+
+#week{
+    grid-area:Week;
+
+}
+
+#topic{
+    
+    grid-area:Topic;
+
+}
+
+#read{
+    grid-area:Reading;
+
+}
+
+#lec{
+    grid-area:Lecture-Material;
+
+}
+#class{
+    grid-area:In-Class;
+
+}
+
+#tut_table{
+    
+    display: grid;
+    grid-template-areas: 
+    "Week33 Lab33 Solutions33";
+    
+    grid-template-columns:  1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+
+    text-align: center;
+    border: 5px #003566 solid;
+    border-radius: 10px;
+    padding: 1rem;
+    max-width: 700px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    justify-content: start;
+
+}
+
+
+#tut_table > div {
+    padding: 1rem;
+    border: 1px #003566 solid;
+
+}
+
+#week2{
+    grid-area: Week33;
+}
+
+#lab2{
+    grid-area: Lab33;
+
+}
+
+#sol2{
+    grid-area: Solutions33;
+}
+
+#assign_table{
+    
+    display: grid;
+    grid-template-areas: 
+    "Exercise2 Topic2 Weight2 Due-Date2 Solution2";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    text-align: center;
+    border: 5px #003566 solid;
+    border-radius: 20px;
+    padding: 1rem;
+    max-width: 700px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#ex2{
+    grid-area: Exercise2;
+}
+
+#topic2{
+    grid-area: Topic2;
+}
+
+#wght2{
+    grid-area: Weight2;
+}
+
+#date2{
+    grid-area: Due-Date2;
+}
+
+#sol2{
+    grid-area: Solution2;
+
+}
+
+#assign_table > div {
+    padding: 1rem;
+    border: 1px #003566 solid;
+}
+
+
+#tests_table{
+    
+    display: grid;
+    grid-template-areas: 
+    "Course Date space1 Capacity Room Last_Name Num_Students";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto;
+    text-align: center;
+    border: 5px #003566 solid;
+    border-radius: 20px;
+    padding: 1rem;
+    max-width: 700px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+#tests_table > div {
+    padding: 1rem;
+    border: 1px #003566 solid;
+}
+
+#course{
+    grid-area: Course;
+    font-weight: bold;
+
+}
+
+#date{
+    grid-area: Date;
+    font-weight: bold;
+
+}
+
+#space{
+    grid-area: space1;
+    font-weight: bold;
+
+}
+
+#cap{
+    grid-area: Capacity;
+    font-weight: bold;
+
+}
+
+#room{
+    grid-area: Room;
+    font-weight: bold;
+
+}
+
+#lname{
+    grid-area:Last_Name;
+    font-weight: bold;
+
+ }
+
+#numstu{
+    grid-area:Num_Students;
+    font-weight: bold;
+
+}
+
+#title{
+    margin-left: 25px;
+}
+
+#desc{
+    text-align: start;
+}
+
+#jan{
+    margin-left: 100px;
+}
+#jan1{
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+
+a {
+
+    text-decoration:none;
+
+}
+a:hover {
+
+    text-decoration: underline;
+    font-weight: bold;
+    color:red;
+
+}
+
+#last_flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+   
+
+  
+}
+
+#title9{
+    padding: 1rem;
+    border: 5px #003566 solid;
+    border-radius:20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width:1050px;
+    text-align: center;
+
+}
+
+h3{
+    margin-left: 20px;
+    margin-right: 20px;
+    
+
+}
+
+
+#tut_ex{
+    margin-left:  20px;
+    margin-left:  20px;
+    padding: 1rem;
+    border: 5px #003566 solid;
+    border-radius: 10px;
+    min-width:1050px;
+}
+
+
+#tut_sec{
+    margin-left: 20px;
+    margin-left:  20px;
+    padding: 1rem;
+    border: 5px #003566 solid;
+    border-radius: 10px;
+    min-width:1050px;
+}
+
+.normal-setup{
+    margin-left: 20px;
+    margin-left:  20px;
+    padding: 1rem;
+    border: 5px #003566 solid;
+    border-radius: 10px;
+    min-width:1050px;
+
+}
+
+.normal-setup1{
+    margin-left: 20px;
+    margin-left:  20px;
+    padding: 1rem;
+    border: 5px #003566 solid;
+    border-radius: 10px;
+    min-width:1050px;
+    margin-bottom: 20px;
+
+}
+
+.normal-setup2{
+    margin-left: 20px;
+    margin-left:  20px;
+    padding: 1rem;
+    border: 5px #003566 solid;
+    border-radius: 10px;
+    min-width:500px;
+    margin-bottom: 20px;
+
+}
+
+
+#calendar1{
+
+    display: grid;
+    grid-template-areas: 
+    "Sun Mon Tues Wed Thurs Fri Sat";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto ;
+    border: 5px #003566 solid;
+    border-radius: 20px;
+    padding: 1rem;
+
+}
+
+.cal_background{
+    margin-bottom: 20px;
+
+
+}
+
+#date1{
+    grid-area: Sun;
+    text-align: center;
+
+
+}
+
+#date2{
+
+    grid-area: Mon;
+    text-align: center;
+
+
+    
+}
+
+#date3{
+
+    grid-area: Tues;
+    text-align: center;
+
+
+    
+}
+
+#date4{
+
+    grid-area: Wed;
+    text-align: center;
+
+    
+}
+
+#date5{
+
+    grid-area: Thurs;
+    text-align: center;
+
+
+    
+}
+
+#date6{
+
+    grid-area: Fri;
+    text-align: center;
+
+
+    
+}
+
+#date7{
+
+    grid-area: Sat;
+    text-align: center;
+
+
+    
+}
+
+#calendar1 > div {
+    padding: 1rem;
+    border: 1px #003566 solid;
+    text-decoration: center;
+
+}
+
+.date89 {
+    text-align: center;
+}
+
+
+
+.error{
+
+    font-family: bold;
+    color:red;
+}
+
+table, th, td{
+    border: solid 1px black;
+    padding: 40px;
+}
+
+#modal-content {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #003566;
+    flex-direction: column;
+    padding:80px;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+
+
+.po{
+
+    color: white;
+    font-size: bold;
+    text-decoration: underline;
+}
+
+ button, input{
+    padding: 15px;
+    border-radius: 10px;
+}
+
+
+.status{
+
+    font-size: bold;
+}
+
+.time{
+
+    padding: 35px;
+    border-radius: 10px;
+
+}
+
+.time2{
+
+    padding: 15px;
+    border-radius: 10px;
+
+}
+
+
+.op{
+    padding:10px;
+    border-radius: 10px;
+}
+

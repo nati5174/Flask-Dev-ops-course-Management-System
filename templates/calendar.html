@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href ="{{ url_for('static', filename='css/styless.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1 class = "Title">
+            CSCB20 - Introduction to Databases and Web Applications
+        </h1>
+    </nav>
+
+    <div id="container">
+    
+        <aside class="sidebar">
+
+            <div><h2>MENU</h2></div>
+
+            <div class = "dropdown">
+
+            <div><a href="{{ url_for('index') }}">home</a></div>
+            <div><a href="{{ url_for('new') }}">new news</a></div>
+            <div> <a href = "https://piazza.com/mail.utoronto.ca/winter2016/cscb20/home"> discusion board</a></div>
+            <div><a href="{{ url_for('lec') }}">lectures</a></div>
+            <div><a href="{{ url_for('labs') }}">labs</a></div>
+            <div><a href="{{ url_for('assign') }}"> assignments</a></div>
+            <div><a href="{{ url_for('tests') }}">tests</a></div>
+            <div><a href="{{ url_for('res') }}">resources</a></div>
+            <div><a href="{{ url_for('syl') }}">syllabus</a></div>
+            <div><a href = "https://markus2.utsc.utoronto.ca/">markus</a></div>
+            <div><a href="{{ url_for('calendar') }}">calendar</a></div>
+            <br>
+
+            {% block content %}
+                {% if session.type == 'Instructor' %}
+                    <div><a href = "{{ url_for('enter_grade') }}">assign marks</a></div>
+                    <div><a href = "{{ url_for('view_grades') }}">view class grades</a></div>
+                    <div><a href="{{url_for('anon_mail')}}">review feedback</a></div>
+                    <div><a href = "{{ url_for('view_anon') }}">view all feedback</a></div>
+                    <div><a href="{{ url_for('remark_req') }}">view remark requests</a></div>
+
+
+                {% else %}    
+                    <div><a href = "{{ url_for('view_grades_student') }}">view your marks</a></div>
+                    <div><a href = "{{ url_for('student_feedback') }}">provide feedback</a></div>
+                    <div><a href = "{{ url_for('remark') }}">remark request</a></div>
+                {% endif %}
+
+
+            <div><a href = "{{ url_for('logout') }}"><b>LOGOUT</b></a></div>
+            {%endblock%}
+
+
+            </div>
+
+
+
+        </aside>
+
+          
+
+        <main class="content"> 
+
+            <div class="first">
+
+                <div class="normal-setup">
+                    <h1>Calendar</h1>
+                </div>
+
+                <div class= "cal_background">
+
+                    <div id = "title">
+                        <h1>Feb 2025</h1>
+                    </div>
+                    <div id = "calendar1">
+
+                        <div id = "date1"><b>Sun</b><br>1</div>
+                        <div id = "date2"><b>Mon</b><br>2</div>
+                        <div id = "date3"><b>Tue</b><br>3</div>
+                        <div id = "date4"><b>Wed</b><br>4</div>
+                        <div id = "date5"><b>Thur</b><br>5</div>
+                        <div id = "date6"><b>Fri</b><br>6</div>
+                        <div id = "date7"><b>Sat</b><br>7</div>
+
+                        <div class="date89">8</div>
+                        <div class="date89">9</div>
+                        <div class="date89">10</div>
+                        <div class="date89">11</div>
+                        <div class="date89">12</div>
+                        <div class="date89">13</div>
+                        <div class="date89">14</div>
+                        <div class="date89">15</div>
+
+                        <div class="date89">16</div>
+                        <div class="date89">17</div>
+                        <div class="date89">18</div>
+                        <div class="date89">19</div>
+                        <div class="date89">20</div>
+                        <div class="date89">21</div>
+                        <div class="date89">22</div>
+
+                        <div class="date89">23</div>
+                        <div class="date89">24</div>
+                        <div class="date89">25</div>
+                        <div class="date89">26</div>
+                        <div class="date89">27</div>
+                        <div class="date89">28</div>
+
+
+
+
+                    </div>
+                    
+                  
+                </div>
+
+
+            </div> 
+        
+        </main>
+
+        <footer class="end"><p>
+            
+            Site design by Nethanel reta<br>
+            <a href = https://web.cs.toronto.edu/ >Faculty of Computer Science at UofT</a>
+        
+        </p></footer>
+
+
+    </div>
+
+
+   
+
+
+    
+</body>
+</html>

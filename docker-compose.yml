@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+
+    volumes:
+      - .:/app
+
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - DATABASE_URL=${DATABASE_URL}
+      - SECRET_KEY=${SECRET_KEY}
+
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - app-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+    environment:
+      - POSTGRES_PASSWORD=${SQL_PASSWORD}
+      - POSTGRES_USER=${SQL_USER}
+      - POSTGRES_DB=my_first_db
+
+    ports:
+      - "5432:5432"
+
+    restart: unless-stopped
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d my_first_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${SQL_PASSWORD}
+
+    ports:
+      - "5050:80"
+
+    depends_on:
+      - db
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

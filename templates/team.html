@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href ="{{ url_for('static', filename='css/styless.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1 class = "Title">
+            CSCB20 - Introduction to Databases and Web Applications
+        </h1>
+    </nav>
+
+    <div id="container">
+    
+        
+        <aside class="sidebar">
+
+            <div><h2>MENU</h2></div>
+
+            <div class = "dropdown">
+
+            <div><a href="{{ url_for('index') }}">home</a></div>
+            <div><a href="{{ url_for('new') }}">new news</a></div>
+            <div> <a href = "https://piazza.com/mail.utoronto.ca/winter2016/cscb20/home"> discusion board</a></div>
+            <div><a href="{{ url_for('lec') }}">lectures</a></div>
+            <div><a href="{{ url_for('labs') }}">labs</a></div>
+            <div><a href="{{ url_for('assign') }}"> assignments</a></div>
+            <div><a href="{{ url_for('tests') }}">tests</a></div>
+            <div><a href="{{ url_for('res') }}">resources</a></div>
+            <div><a href="{{ url_for('syl') }}">syllabus</a></div>
+            <div><a href = "https://markus2.utsc.utoronto.ca/">markus</a></div>
+            <div><a href="{{ url_for('calendar') }}">calendar</a></div>
+            <br>
+
+            {% block content %}
+                {% if session.type == 'Instructor' %}
+                    <div><a href = "{{ url_for('enter_grade') }}">assign marks</a></div>
+                    <div><a href = "{{ url_for('view_grades') }}">view class grades</a></div>
+                    <div><a href="{{url_for('anon_mail')}}">review feedback</a></div>
+                    <div><a href = "{{ url_for('view_anon') }}">view all feedback</a></div>
+                    <div><a href="{{ url_for('remark_req') }}">view remark requests</a></div>
+
+
+                {% else %}    
+                    <div><a href = "{{ url_for('view_grades_student') }}">view your marks</a></div>
+                    <div><a href = "{{ url_for('student_feedback') }}">provide feedback</a></div>
+                    <div><a href = "{{ url_for('remark') }}">remark request</a></div>
+                {% endif %}
+
+
+            <div><a href = "{{ url_for('logout') }}"><b>LOGOUT</b></a></div>
+            {%endblock%}
+
+
+            </div>
+
+
+
+        </aside>
+
+        <main class="content"> 
+
+            <div class="first">
+
+                <div>
+                    <h1>Online Resources</h1>
+                    <ul>
+                        <li>
+                            <a href="index.html">Course Website</a> <br>
+                            <p>Course information, lecture notes, tutorial material, important announcements, etc. will be posted on the course website. It is your responsibility to visit it frequently.</p>
+                        </li>
+                        <li>
+                            Beginner Tutorial for <a href="https://www.w3schools.com/cssref/pr_font_weight.php">MySQL</a>.
+                        </li>
+                        <li>
+                            Email communication <br>
+                            <p>Questions regarding the course material, assignments, midterm, etc. should be posed on the bulletin board. Questions about the assignment which you feel you cannot formulate without revealing your solution (should be very rare!), as well as questions and concerns regarding your personal matters should be directed to the instructor</p>
+
+                        </li>
+                        <li>
+                            <div> <a href = "https://piazza.com/mail.utoronto.ca/winter2016/cscb20/home"> Discusion board</a></div><br>
+                            <p>You are encouraged to use the bulletin board to discuss the course material, pose questions on the assignments, etc. The bulletin board will be monitored by the instructor and by your TAs. Please, be very careful not to reveal (parts of) your solution on the bulletin board.</p>
+
+                        </li>
+                    </ul>
+                  
+                </div>
+
+                <div class="normal-setup1">
+                    <h1>Software and documentation </h1>
+                    <ul>
+                        <li>Logging into Mathlab.
+                            <ol>
+                                <li> Mac OS comes with the application "terminal". Simple click on it to run. Login to mathlab by typing
+                                    ssh utorid@mathlab.utsc.utoronto.ca. Enter your password</li>
+                                <li>Windows - you will need a SSH client. PuTTY is a good free one. You can download and install here: <a href="https://www.putty.org/">PuTTY</a>. Use the same command as above to login to mathlab:
+                                    ssh utorid@mathlab.utsc.utoronto.ca.</li>    
+                            </ol>
+                        </li>
+
+
+                    </ul>
+
+
+
+                </div>
+
+                
+
+
+            </div> 
+        
+        </main>
+
+        <footer class="end"><p>
+            
+            Site design by Nethanel reta<br>
+            <a href = https://web.cs.toronto.edu/ >Faculty of Computer Science at UofT</a>
+        
+        </p></footer>
+
+
+    </div>
+
+
+   
+
+
+    
+</body>
+</html>

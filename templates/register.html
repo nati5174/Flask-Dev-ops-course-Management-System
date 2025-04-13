@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles1.css') }}">
+</head>
+<body>
+
+
+    <nav class="navbar">
+        <h1 class = "Title">
+            CSCB20 - Introduction to Databases and Web Applications
+        </h1>
+    </nav>
+
+    <nav class="bar">
+            <button class="log"><b><a class="no_link" href="{{ url_for('login') }}">Login</a></b></button>
+            <span>|</span>
+            <button class="reg"><b>Register</b></button>
+    </nav>
+
+
+    <main id="auth">
+
+        <h1>Welcome to the CSCB20 Website</h1>
+        <br>
+        <p id="intro_p">With this website, you will have access, to UTSC's Introduction to Databases and Web Applications. Through this courses students have the oppurtunity to learn about Databases(sql), Front-End, and Backend Development. This course is built for students and instructoes to this course. If interested please register below!</p>
+        <br>
+        <h2>
+            Register
+        </h2>
+
+        <form action="http://127.0.0.1:5000/" method="post">
+
+            {% block content %}
+            {%with messages = get_flashed_messages(with_categories=True)%}
+                {% if messages %}
+                    {% for categories, message in messages %}
+                        <div class="error">{{categories}} - {{message}}</div>
+                    {% endfor%}
+    
+                {%endif%}        
+            {% endwith%}
+            {% endblock %}
+            <br>
+
+
+            <input type="Username" placeholder="Username" name="username_reg"> <br>
+            <br>
+            <br>
+            <input type="email" placeholder="Email" name="email_reg"> <br>
+            <br>
+            <br>
+            <input type="password" placeholder="Password" name="pswd_reg"> <br>
+            <br>
+            <select name="type" class="time2">
+                <option name="type" class="time2">Student</option>
+                <option name="type" class="time2">Instructor</option>
+
+            </select><br>
+
+            <button class="log_reg_button" type="registar2">Register</button>
+            <br><br>
+           
+
+        </form>
+
+        </main>
+
+
+
+    
+</body>
+</html>
